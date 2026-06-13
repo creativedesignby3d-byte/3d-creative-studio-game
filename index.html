@@ -26,9 +26,30 @@ const C=document.getElementById('c');
 const ctx=C.getContext('2d');
 let W,H,SC,GY;
 function resize(){
-  const pw=window.innerWidth,ph=window.innerHeight;
-  if(pw/ph>16/9){H=ph;W=Math.floor(H*16/9);}else{W=pw;H=Math.floor(W*9/16);}
-  C.width=W;C.height=H;SC=W/820;GY=H-Math.floor(H*0.15);
+
+  const pw = window.innerWidth;
+  const ph = window.innerHeight;
+
+  // Mobile devices
+  if(pw < 900){
+      W = pw;
+      H = ph;
+  }
+  else{
+      if(pw/ph > 16/9){
+          H = ph;
+          W = Math.floor(H * 16/9);
+      }else{
+          W = pw;
+          H = Math.floor(W * 9/16);
+      }
+  }
+
+  C.width = W;
+  C.height = H;
+
+  SC = W / 820;
+  GY = H - Math.floor(H * 0.15);
 }
 resize();
 window.addEventListener('resize',()=>{resize();});
