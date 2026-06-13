@@ -521,7 +521,7 @@ function drawTurret(e){
 // ── HUD ───────────────────────────────────────────────────────────────────────
 function drawHUD(){
   if(!P)return;
-  ctx.fillStyle='rgba(0,0,0,0.6)';ctx.fillRect(0,0,W,s(38));
+  ctx.fillStyle='rgba(0,0,0,0.6)';ctx.fillRect(0,0,W,s(48));
   ctx.font=`bold ${s(14)}px Arial Black`;
   ctx.fillStyle='#44ff44';ctx.textAlign='left';ctx.fillText('SCORE: '+score,s(12),s(25));
   ctx.textAlign='center';ctx.fillStyle='#ffdd44';ctx.fillText('◆ WAVE '+wave+' ◆',W/2,s(25));
@@ -531,10 +531,10 @@ ctx.strokeStyle='#000000';
 ctx.lineWidth=s(3);
 
 ctx.textAlign='center';
-ctx.strokeText('3D CREATIVE STUDIO',W/2,s(33));
+ctx.strokeText('3D CREATIVE STUDIO',W/2,s(32));
 
 ctx.fillStyle='#44ff44';
-ctx.fillText('3D CREATIVE STUDIO',W/2,s(33));
+ctx.fillText('3D CREATIVE STUDIO',W/2,s(32));
   // Hearts
   const hs=s(16),hg=s(5),hsx=W-s(12)-(3*(hs+hg));
   for(let i=0;i<3;i++){
