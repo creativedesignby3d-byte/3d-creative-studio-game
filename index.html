@@ -727,11 +727,11 @@ function drawMenu(){
 const my=H*0.22;
 
 ctx.fillStyle='rgba(0,20,0,0.75)';
-rr(s(16),my,W-s(32),s(170),s(10));
+rr(s(16),my,W-s(32),s(260),s(10));
 
 ctx.strokeStyle='#44ff44';
 ctx.lineWidth=s(1);
-ctx.strokeRect(s(16),my,W-s(32),s(170));
+ctx.strokeRect(s(16),my,W-s(32),s(260));
 
 ctx.textAlign='center';
 
@@ -740,7 +740,7 @@ ctx.font=`bold ${s(14)}px Arial Black`;
 ctx.fillText('🎯 MISSION',W/2,my+s(20));
 
 ctx.fillStyle='#ffffff';
-ctx.font=`${s(11)}px Arial Black`;
+ctx.font=`BOLD ${s(18)}px Arial Black`;
 ctx.fillText('Destroy enemies',W/2,my+s(42));
 ctx.fillText('Survive waves',W/2,my+s(58));
 ctx.fillText('Score as high as possible',W/2,my+s(74));
@@ -750,7 +750,7 @@ ctx.font=`bold ${s(13)}px Arial Black`;
 ctx.fillText('🎮 CONTROLS',W/2,my+s(100));
 
 ctx.fillStyle='#ffffff';
-ctx.font=`${s(10)}px Arial Black`;
+ctx.font=`BOLD ${s(16)}px Arial Black`;
 ctx.fillText('◀ ▶ MOVE',W/2,my+s(118));
 ctx.fillText('▲ JUMP',W/2,my+s(132));
 ctx.fillText('🔴 FIRE',W/2,my+s(146));
@@ -758,8 +758,7 @@ ctx.fillText('↗ + 🔴 DIAGONAL SHOT',W/2,my+s(160));
 
   // Controls hint
   ctx.fillStyle='#446644';ctx.font=`${s(10)}px Arial Black`;
-  ctx.fillText('📱 ◀▶ to move  ·  ▲ to jump  ·  🔴 FIRE to shoot  ·  ▲+FIRE = shoot diagonal',W/2,ry+s(118));
-
+  
   // DEPLOY BUTTON
   const bw=s(260),bh=s(52),bx=W/2-bw/2,by=H-s(68);
   const pulse=0.6+0.4*Math.sin(Date.now()*0.004);
