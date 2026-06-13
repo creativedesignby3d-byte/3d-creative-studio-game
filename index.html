@@ -685,7 +685,10 @@ function drawMenu(){
   ctx.fillStyle='#ffffff';
   ctx.font=`bold ${s(12)}px Arial Black`;
   ctx.fillText('AI BUILDER DEMO v1.0',W/2,H*0.12+s(52));
-
+  ctx.fillStyle='#cccccc';
+  ctx.font=`${s(10)}px Arial Black`;
+  ctx.fillText('Built Using AI By A Non-Coder',W/2,H*0.12+s(68));
+  
   // Character preview — draw Bill on menu
   ctx.save();ctx.translate(W/2-s(60),H*0.38);
   ctx.scale(1.8,1.8);
@@ -698,36 +701,39 @@ function drawMenu(){
   ctx.fillStyle='#2a4a18';ctx.fillRect(s(-6),s(-8),s(7),s(22));ctx.fillRect(s(1),s(-8),s(7),s(22));
   ctx.restore();
 
-  // Points & enemy info
-  const ty=H*0.22;
-  ctx.fillStyle='rgba(0,30,0,0.65)';rr(s(16),ty,W-s(32),s(76),s(8));
-  ctx.strokeStyle='#224422';ctx.lineWidth=s(1);ctx.strokeRect(s(16),ty,W-s(32),s(76));
-  ctx.fillStyle='#55ff55';ctx.font=`bold ${s(12)}px Arial Black`;ctx.textAlign='center';ctx.fillText('— ENEMIES & POINTS —',W/2,ty+s(16));
-  const ei=[{n:'SOLDIER',p:'+100',c:'#5a8a4a'},{n:'HELICOPTER',p:'+200 (2 hits)',c:'#4a6a9a'},{n:'TURRET',p:'+300 (3 hits)',c:'#8a8a3a'}];
-  const ew=(W-s(32))/3;
-  for(let i=0;i<3;i++){
-    const cx=s(16)+i*ew+ew/2;
-    ctx.fillStyle=ei[i].c;ctx.font=`bold ${s(11)}px Arial Black`;ctx.fillText(ei[i].n,cx,ty+s(36));
-    ctx.fillStyle='#ffdd44';ctx.font=`${s(10)}px Arial Black`;ctx.fillText(ei[i].p,cx,ty+s(52));
-    if(i<2){ctx.strokeStyle='#224422';ctx.lineWidth=s(1);ctx.beginPath();ctx.moveTo(s(16)+ew*(i+1),ty+s(22));ctx.lineTo(s(16)+ew*(i+1),ty+s(68));ctx.stroke();}
-  }
-  ctx.fillStyle='#555';ctx.font=`${s(9)}px Arial Black`;ctx.fillText('10 shots/clip  ·  Auto reload  ·  Enemy crosses edge = −50 pts',W/2,ty+s(68));
+ // MISSION BRIEFING
 
-  // Rules
-  const ry=ty+s(90);
-  ctx.fillStyle='rgba(0,15,30,0.65)';rr(s(16),ry,W-s(32),s(104),s(8));
-  ctx.strokeStyle='#223344';ctx.lineWidth=s(1);ctx.strokeRect(s(16),ry,W-s(32),s(104));
-  ctx.fillStyle='#44aaff';ctx.font=`bold ${s(12)}px Arial Black`;ctx.textAlign='center';ctx.fillText('— RULES —',W/2,ry+s(16));
-  const rules=[
-    '🛡  You have 3 LIVES — shown as hearts top right',
-    '⚠  Enemy soldier reaches left edge → −50 pts',
-    '💥  Enemy bullet or contact hits you → LOSE LIFE',
-    '🎮  WAVE clears when all enemies destroyed',
-    '🏆  Waves get harder · 3 lives gone = GAME OVER',
-  ];
-  ctx.textAlign='left';ctx.fillStyle='#99ccaa';ctx.font=`${s(10)}px Arial Black`;
-  for(let i=0;i<rules.length;i++)ctx.fillText(rules[i],s(28),ry+s(32)+i*s(15));
-  ctx.textAlign='center';
+const my=H*0.22;
+
+ctx.fillStyle='rgba(0,20,0,0.75)';
+rr(s(16),my,W-s(32),s(170),s(10));
+
+ctx.strokeStyle='#44ff44';
+ctx.lineWidth=s(1);
+ctx.strokeRect(s(16),my,W-s(32),s(170));
+
+ctx.textAlign='center';
+
+ctx.fillStyle='#44ff44';
+ctx.font=`bold ${s(14)}px Arial Black`;
+ctx.fillText('🎯 MISSION',W/2,my+s(20));
+
+ctx.fillStyle='#ffffff';
+ctx.font=`${s(11)}px Arial Black`;
+ctx.fillText('Destroy enemies',W/2,my+s(42));
+ctx.fillText('Survive waves',W/2,my+s(58));
+ctx.fillText('Score as high as possible',W/2,my+s(74));
+
+ctx.fillStyle='#ffdd44';
+ctx.font=`bold ${s(13)}px Arial Black`;
+ctx.fillText('🎮 CONTROLS',W/2,my+s(100));
+
+ctx.fillStyle='#ffffff';
+ctx.font=`${s(10)}px Arial Black`;
+ctx.fillText('◀ ▶ MOVE',W/2,my+s(118));
+ctx.fillText('▲ JUMP',W/2,my+s(132));
+ctx.fillText('🔴 FIRE',W/2,my+s(146));
+ctx.fillText('↗ + 🔴 DIAGONAL SHOT',W/2,my+s(160));
 
   // Controls hint
   ctx.fillStyle='#446644';ctx.font=`${s(10)}px Arial Black`;
@@ -739,7 +745,7 @@ function drawMenu(){
   ctx.fillStyle=`rgba(68,255,68,${0.1+pulse*0.08})`;rr(bx,by,bw,bh,s(10));
   ctx.strokeStyle='#44ff44';ctx.lineWidth=s(2);ctx.strokeRect(bx,by,bw,bh);
   ctx.fillStyle='#44ff44';ctx.font=`bold ${s(21)}px Arial Black`;ctx.textAlign='center';
-  ctx.fillText('▶  DEPLOY — BILL',W/2,by+s(34));
+  ctx.fillText('▶  START MISSION',W/2,by+s(34));
   ctx.globalAlpha=pulse*0.22;ctx.strokeStyle='#44ff44';ctx.lineWidth=s(2);ctx.strokeRect(bx-s(7),by-s(7),bw+s(14),bh+s(14));ctx.globalAlpha=1;
 
   // Konami hint
