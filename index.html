@@ -525,10 +525,16 @@ function drawHUD(){
   ctx.font=`bold ${s(14)}px Arial Black`;
   ctx.fillStyle='#44ff44';ctx.textAlign='left';ctx.fillText('SCORE: '+score,s(12),s(25));
   ctx.textAlign='center';ctx.fillStyle='#ffdd44';ctx.fillText('◆ WAVE '+wave+' ◆',W/2,s(25));
-  ctx.fillStyle='#44ff44';
-  ctx.font=`bold ${s(10)}px Arial Black`;
-  ctx.textAlign='center';
-  ctx.fillText('3D CREATIVE STUDIO',W/2,s(37));
+ ctx.font=`bold ${s(14)}px Arial Black`;
+
+ctx.strokeStyle='#000000';
+ctx.lineWidth=s(3);
+
+ctx.textAlign='center';
+ctx.strokeText('3D CREATIVE STUDIO',W/2,s(40));
+
+ctx.fillStyle='#44ff44';
+ctx.fillText('3D CREATIVE STUDIO',W/2,s(40));
   // Hearts
   const hs=s(16),hg=s(5),hsx=W-s(12)-(3*(hs+hg));
   for(let i=0;i<3;i++){
